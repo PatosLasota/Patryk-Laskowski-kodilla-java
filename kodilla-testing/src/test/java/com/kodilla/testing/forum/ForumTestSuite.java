@@ -1,6 +1,5 @@
 package com.kodilla.testing.forum;
 
-
 import com.kodilla.testing.user.SimpleUser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
