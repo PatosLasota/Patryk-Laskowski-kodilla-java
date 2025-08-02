@@ -4,8 +4,6 @@ import org.junit.jupiter.api.function.Executable;
 
 import org.junit.jupiter.api.*;
 
-import javax.print.attribute.standard.SheetCollate;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("ShapeCollector Test Suite")
@@ -47,7 +45,7 @@ public class ShapeCollectorTestSuite {
 
         @Test
         @DisplayName("Try remove none existent Figure")
-        void testRomoveNoneexistentFigure() {
+        void testRomoveNonexistentFigure() {
             //Given
             Shape triangle = new Triangle(3.0, 4.0);
             //When
@@ -61,7 +59,7 @@ public class ShapeCollectorTestSuite {
 
     @Nested
     @DisplayName("Test for retrieving and showing figures")
-    class RetrievelTests {
+    class RetrieveTests {
 
         @Test
         @DisplayName("Retrieve figure at given index")
@@ -75,7 +73,7 @@ public class ShapeCollectorTestSuite {
             assertEquals(triangle, result);
         }
         @Test
-        @DisplayName("Show all figures in collector in sinngle string")
+        @DisplayName("Show all figures in collector in single string")
         void testShowFigures() {
             //Given
             collector.addFigure(new Square(2.0));
