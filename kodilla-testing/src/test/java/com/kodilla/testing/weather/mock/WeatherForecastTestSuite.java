@@ -44,38 +44,16 @@ public class WeatherForecastTestSuite {
     }
     @Test
     void testGetAverageTemperature() {
-        //Given
         double averageTemperature = weatherForecast.getAverageTemperature();
-        double sum= 0.0;
-        //When
-        for(double temp:  temperaturesMap.values()){
-            sum+=temp;
-        }
-        double expectedAverageTemperature = sum / temperaturesMap.size();
-        //Then
-        Assertions.assertEquals(expectedAverageTemperature, averageTemperature, 0.01);
+
+        Assertions.assertEquals(25.56, averageTemperature, 0.01);
     }
 
     @Test
     void testGetMedianTemperature() {
-        //Given
         double median = weatherForecast.getMedianTemperature();
-        List<Double> tempList = new ArrayList<>(temperaturesMap.values());
-        Collections.sort(tempList);
 
-        double expectedMedian;
-        int listSize = tempList.size();
-
-        //Then
-        if(listSize == 0){
-            expectedMedian = 0.0;
-        } else if (listSize % 2 ==1){
-            expectedMedian = tempList.get(listSize / 2);
-        } else  {
-            expectedMedian = (tempList.get((listSize / 2) - 1) + tempList.get(listSize / 2)) /2;
-        }
-        //When
-        Assertions.assertEquals(expectedMedian, median, 0.01);
+        Assertions.assertEquals(25.5, median, 0.01);
     }
 
 
