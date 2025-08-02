@@ -13,7 +13,7 @@ public class Circle implements Shape {
     }
     @Override
     public double getField() {
-        return Math.PI*radius*radius;
+        return Math.PI * radius * radius;
     }
     @Override
     public boolean equals(Object o) {

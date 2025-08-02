@@ -1,6 +1,10 @@
 package com.kodilla.testing.shape;
 
+import org.junit.jupiter.api.function.Executable;
+
 import org.junit.jupiter.api.*;
+
+import javax.print.attribute.standard.SheetCollate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -83,4 +87,68 @@ public class ShapeCollectorTestSuite {
             assertEquals("Square, Circle, Triangle", result);
         }
     }
+    @Nested
+    @DisplayName("Bounds tests")
+    class BoundsTests{
+        @Test
+        @DisplayName("Retrive First index Figure")
+        void testGetFirstIndex() {
+            //Given
+            ShapeCollector collector = new ShapeCollector();
+            Square square = new Square(2);
+            collector.addFigure(square);
+            //When
+            Shape result = collector.getFigure(0);
+            //Then
+            assertEquals(square, result);
+        }
+        @Test
+        @DisplayName("Retrive Last index Figure")
+        void testGetLastIndex() {
+            //Given
+            ShapeCollector collector = new ShapeCollector();
+            Square square = new Square(2);
+            collector.addFigure(square);
+            Circle circle = new Circle(2.0);
+            collector.addFigure(circle);
+            //When
+            Shape result = collector.getFigure(1);
+            //Then
+            assertEquals(circle, result);
+        }
+
+        @Test
+        @DisplayName("test IndexOutOfBoundsException")
+        void testGetFigureIndexOutOfBounds() {
+            //Given
+            ShapeCollector collector = new ShapeCollector();
+            collector.addFigure(new Square(2.0));
+            //When
+            Executable executable = new Executable(){
+                @Override
+                public void execute() throws Throwable {
+                    collector.getFigure(1);
+                }
+            };
+            //Then
+            assertThrows(IndexOutOfBoundsException.class, executable);
+        }
+        @Test
+        @DisplayName("Test IndexOutOfBoundsException negative index")
+        void testGetFigureIndexOutOfBoundsNegative() {
+            //Given
+            ShapeCollector collector = new ShapeCollector();
+            collector.addFigure(new Square(2.0));
+            //When
+            Executable executable = new Executable(){
+                @Override
+                public void execute() throws Throwable {
+                    collector.getFigure(-1);
+                }
+            };
+            //Then
+            assertThrows(IndexOutOfBoundsException.class, executable);
+        }
+    }
+
 }

@@ -1,6 +1,5 @@
 package com.kodilla.testing.shape;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class ShapeCollector {
         if(n >= 0 && n < shapes.size()){
             return shapes.get(n);
         } else {
-            return null;
+            throw new IndexOutOfBoundsException("Invalid index: " + n);
         }
     }
 
