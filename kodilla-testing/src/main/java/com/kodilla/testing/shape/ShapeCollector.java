@@ -6,16 +6,16 @@ import java.util.List;
 
 public class ShapeCollector {
 
-    private static List<Shape> shapes = new ArrayList<>();
+    private List<Shape> shapes = new ArrayList<>();
 
 
-    void addFigure(Shape shape){
+    public void addFigure(Shape shape){
         shapes.add(shape);
     }
-    boolean removeFigure(Shape shape){
+    public boolean removeFigure(Shape shape){
        return shapes.remove(shape);
     }
-    public static Shape getFigure(int n){
+    public Shape getFigure(int n){
         if(n >= 0 && n < shapes.size()){
             return shapes.get(n);
         } else {
