@@ -38,7 +38,7 @@ public class ShapeCollectorTestSuite {
             boolean result = collector.removeFigure(circle);
             //Then
             assertTrue(result);
-            assertEquals(0, collector.showFigures().size());
+            assertEquals(0, collector.showFigures().length());
         }
 
         @Test

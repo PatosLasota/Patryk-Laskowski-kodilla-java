@@ -1,25 +1,37 @@
 package com.kodilla.testing.shape;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeCollector {
 
-    private List<Shape> shapes = new ArrayList<>();
+    private static List<Shape> shapes = new ArrayList<>();
 
 
     void addFigure(Shape shape){
-        //dodaje figure do kolekcji
+        shapes.add(shape);
     }
     boolean removeFigure(Shape shape){
-        return false; //usuwa figure z kolekcji narazie jest false
+       return shapes.remove(shape);
     }
     public static Shape getFigure(int n){
-        return null; // Zwraca figure z kolekcji narazie nic nie zwraca
+        if(n >= 0 && n < shapes.size()){
+            return shapes.get(n);
+        } else {
+            return null;
+        }
     }
 
     public String showFigures(){
-        return null; //zrwaca wszyskie nazwy figur jako jeden String, narazie nie zwraca nic
+        StringBuilder names = new StringBuilder(); // używamy StringBuildera do składania tekstu
+        for (int i = 0; i < shapes.size(); i++) {
+            names.append(shapes.get(i).getShapeName());
+            if(i < shapes.size()-1){
+                names.append(", ");
+            }
+        }
+        return names.toString();
     }
 
 }
