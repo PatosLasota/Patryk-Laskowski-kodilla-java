@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-class BookDirectoryTestSuite {
+class BookLibraryTestSuite {
 
     @Mock
     private LibraryDatabase libraryDatabaseMock;
@@ -48,6 +48,8 @@ class BookDirectoryTestSuite {
 
         // Then
         assertEquals(4, theListOfBooks.size());
+        verify(libraryDatabaseMock, times(1)).listBooksWithCondition("Secret");
+
     }
 
 
@@ -75,6 +77,10 @@ class BookDirectoryTestSuite {
         assertEquals(15, theListOfBooks15.size());
         assertEquals(0, theListOfBooks40.size());
 
+        verify(libraryDatabaseMock, times(1)).listBooksWithCondition("ZeroBooks");
+        verify(libraryDatabaseMock, times(1)).listBooksWithCondition("Any title");
+        verify(libraryDatabaseMock, times(1)).listBooksWithCondition("FortyBooks");
+
     }
 
     @Test
@@ -101,10 +107,12 @@ class BookDirectoryTestSuite {
         List<Book> books = bookLibrary.listBooksInHandsOf(user);
         //Then
         assertEquals(0,books.size());
+        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(user);
+
     }
 
     @Test
-    void testListBooksInHandsUserHasOneBook(){
+    void testListBooksInHandOfUserHasOneBook(){
         //Given
         LibraryUser user = new LibraryUser("Patryk","Laskowski", "123465987");
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -117,10 +125,12 @@ class BookDirectoryTestSuite {
 
         //Then
         assertEquals(1,books.size());
+        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(user);
+
 
     }
     @Test
-    void testListBooksInHandsUserHasFiveBooks(){
+    void testListBooksInHandOfUserHasFiveBooks(){
         //Given
         LibraryUser user = new LibraryUser("Patryk","Laskowski", "123465987");
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -133,5 +143,6 @@ class BookDirectoryTestSuite {
 
         //Then
         assertEquals(5,books.size());
+        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(user);
     }
 }
