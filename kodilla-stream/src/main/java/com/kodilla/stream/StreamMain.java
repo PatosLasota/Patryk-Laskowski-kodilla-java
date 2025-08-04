@@ -10,11 +10,11 @@ public class StreamMain {
 
         poemBeautifier.beautify("Hello World", text -> "ABC" + text + "ABC");
 
-        poemBeautifier.beautify("Hello World", String::toUpperCase);
+        poemBeautifier.beautify("Good Morning!", String::toUpperCase);
 
-        poemBeautifier.beautify("Hello World", text -> new StringBuilder(text).reverse().toString());
+        poemBeautifier.beautify("Nice to meet you.", text -> new StringBuilder(text).reverse().toString());
 
-        poemBeautifier.beautify("Hello World", text -> text.replace(" ", "?"));
+        poemBeautifier.beautify("Have a great day!", text -> text.replace(" ", "?"));
 
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
