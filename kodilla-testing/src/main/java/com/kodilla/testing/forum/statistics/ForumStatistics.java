@@ -1,5 +1,7 @@
 package com.kodilla.testing.forum.statistics;
 
+import java.util.List;
+
 public class ForumStatistics {
 
     private int userCount;
@@ -36,14 +38,15 @@ public class ForumStatistics {
 
     public void calculateAdvStatistics(Statistics statistics) {
 
-        userCount = statistics.usersNames().size();
-        postCount = statistics.postCount();
-        commentCount = statistics.commentCount();
+        List<String> users = statistics.usersNames();
+        userCount = (users != null) ? users.size() : 0;
+
+        postCount = Math.max(0, statistics.postCount());
+        commentCount = Math.max(0, statistics.commentCount());
 
         averagePostPerUser = userCount > 0 ? (double) postCount / userCount : 0;
 
         if (postCount == 0) {
-            averageCommentPerUser = 0;
             averageCommentPerPost = 0;
         } else {
             averageCommentPerUser = userCount > 0 ? (double) commentCount / userCount : 0;

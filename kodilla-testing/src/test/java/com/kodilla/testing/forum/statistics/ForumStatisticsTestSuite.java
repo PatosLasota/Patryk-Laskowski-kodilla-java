@@ -8,8 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ForumStatisticsTestSuite {
     private Statistics statisticsMock;
@@ -45,6 +44,10 @@ public class ForumStatisticsTestSuite {
         assertEquals(0.0, forumStatistics.getAveragePostPerUser());
         assertEquals(0.0, forumStatistics.getAverageCommentPerUser());
         assertEquals(0.0, forumStatistics.getAverageCommentPerPost());
+
+        verify(statisticsMock).usersNames();
+        verify(statisticsMock).postCount();
+        verify(statisticsMock).commentCount();
     }
 
     @Test
@@ -62,6 +65,10 @@ public class ForumStatisticsTestSuite {
         assertEquals(100.0, forumStatistics.getAveragePostPerUser());
         assertEquals(50.0, forumStatistics.getAverageCommentPerUser());
         assertEquals(0.5, forumStatistics.getAverageCommentPerPost());
+
+        verify(statisticsMock).usersNames();
+        verify(statisticsMock).postCount();
+        verify(statisticsMock).commentCount();
     }
 
     @Test
@@ -79,6 +86,10 @@ public class ForumStatisticsTestSuite {
         assertEquals(4.0, forumStatistics.getAveragePostPerUser());
         assertEquals(0.0, forumStatistics.getAverageCommentPerUser());
         assertEquals(0.0, forumStatistics.getAverageCommentPerPost());
+
+        verify(statisticsMock).usersNames();
+        verify(statisticsMock).postCount();
+        verify(statisticsMock).commentCount();
     }
 
     @Test
@@ -96,6 +107,10 @@ public class ForumStatisticsTestSuite {
         assertEquals(25.0, forumStatistics.getAveragePostPerUser());
         assertEquals(12.5, forumStatistics.getAverageCommentPerUser());
         assertEquals(0.5, forumStatistics.getAverageCommentPerPost());
+
+        verify(statisticsMock).usersNames();
+        verify(statisticsMock).postCount();
+        verify(statisticsMock).commentCount();
     }
 
     @Test
@@ -113,6 +128,10 @@ public class ForumStatisticsTestSuite {
         assertEquals(12.5, forumStatistics.getAveragePostPerUser());
         assertEquals(50.0, forumStatistics.getAverageCommentPerUser());
         assertEquals(4.0, forumStatistics.getAverageCommentPerPost());
+
+        verify(statisticsMock).usersNames();
+        verify(statisticsMock).postCount();
+        verify(statisticsMock).commentCount();
     }
 
     @Test
@@ -130,6 +149,10 @@ public class ForumStatisticsTestSuite {
         assertEquals(0.0, forumStatistics.getAveragePostPerUser());
         assertEquals(0.0, forumStatistics.getAverageCommentPerUser());
         assertEquals(2.0, forumStatistics.getAverageCommentPerPost());
+
+        verify(statisticsMock).usersNames();
+        verify(statisticsMock).postCount();
+        verify(statisticsMock).commentCount();
     }
 
     @Test
@@ -147,5 +170,9 @@ public class ForumStatisticsTestSuite {
         assertEquals(10.0, forumStatistics.getAveragePostPerUser());
         assertEquals(50.0, forumStatistics.getAverageCommentPerUser());
         assertEquals(5.0, forumStatistics.getAverageCommentPerPost());
+
+        verify(statisticsMock).usersNames();
+        verify(statisticsMock).postCount();
+        verify(statisticsMock).commentCount();
     }
 }
