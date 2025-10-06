@@ -1,4 +1,4 @@
-package com.kodilla.kodillaexception;
+package com.kodilla.kodilla.exception;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
