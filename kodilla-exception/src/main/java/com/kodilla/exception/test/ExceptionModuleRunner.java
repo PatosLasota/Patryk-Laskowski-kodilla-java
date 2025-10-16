@@ -25,6 +25,6 @@ public class ExceptionModuleRunner {
             System.out.println("Error: " + e.getMessage());
         }
 
-        System.out.println("Program Finished!");
+        System.out.println("Program Finished! ");
     }
 }
