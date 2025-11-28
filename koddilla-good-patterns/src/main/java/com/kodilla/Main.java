@@ -1,5 +1,6 @@
 package com.kodilla;
 
+import com.kodilla.good.patterns.challenges.Factorial;
 import com.kodilla.good.patterns.challenges.MovieStore;
 
 import java.util.List;
@@ -14,5 +15,9 @@ public class Main {
                 .collect(Collectors.joining("!"));
 
         System.out.println(result);
+
+        Factorial factorial = new Factorial();
+
+        System.out.println(factorial.calculateFactorial(4));
     }
 }
