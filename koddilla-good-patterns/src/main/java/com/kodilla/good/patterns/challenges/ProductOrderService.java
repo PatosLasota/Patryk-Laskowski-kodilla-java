@@ -16,12 +16,12 @@ public class ProductOrderService {
     public static OrderDto process(final OrderRequest orderRequest) {
         boolean isOrdered = orderService.createOrder(orderRequest.getUser(), orderRequest.getProduct());
 
-        if(isOrdered){
+        if (isOrdered) {
             informationService.inform(orderRequest.getUser());
             orderRepository.createOrder(orderRequest.getUser(), orderRequest.getProduct());
-            return new OrderDto(orderRequest.getUser(),true);
-        } else  {
-            return new OrderDto(orderRequest.getUser(),false);
+            return new OrderDto(orderRequest.getUser(), true);
+        } else {
+            return new OrderDto(orderRequest.getUser(), false);
         }
 
     }
