@@ -1,8 +1,7 @@
-package com.kodilla.food2door.producer;
+package com.kodilla.good.patterns.challenges.food2door.producer;
 
-import com.kodilla.food2door.order.OrderProcessor;
-import com.kodilla.food2door.order.OrderRequest;
-import com.kodilla.food2door.order.OrderResult;
+import com.kodilla.good.patterns.challenges.food2door.order.OrderRequest;
+import com.kodilla.good.patterns.challenges.food2door.order.OrderResult;
 
 public class ExtraFoodShop implements FoodProducer {
 

@@ -1,6 +1,6 @@
-package com.kodilla.food2door.order;
+package com.kodilla.good.patterns.challenges.food2door.order;
 
-import com.kodilla.food2door.producer.FoodProducer;
+import com.kodilla.good.patterns.challenges.food2door.producer.FoodProducer;
 
 public class OrderProcessor {
     public OrderResult process(FoodProducer producer, OrderRequest request) {

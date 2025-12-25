@@ -1,11 +1,11 @@
-package com.kodilla.food2door;
+package com.kodilla.good.patterns.challenges.food2door;
 
-import com.kodilla.food2door.order.OrderProcessor;
-import com.kodilla.food2door.order.OrderRequest;
-import com.kodilla.food2door.producer.ExtraFoodShop;
-import com.kodilla.food2door.producer.FoodProducer;
-import com.kodilla.food2door.producer.GlutenFreeShop;
-import com.kodilla.food2door.producer.HealthyShop;
+import com.kodilla.good.patterns.challenges.food2door.order.OrderProcessor;
+import com.kodilla.good.patterns.challenges.food2door.order.OrderRequest;
+import com.kodilla.good.patterns.challenges.food2door.producer.ExtraFoodShop;
+import com.kodilla.good.patterns.challenges.food2door.producer.FoodProducer;
+import com.kodilla.good.patterns.challenges.food2door.producer.GlutenFreeShop;
+import com.kodilla.good.patterns.challenges.food2door.producer.HealthyShop;
 
 public class App {
     public static void main(String[] args) {

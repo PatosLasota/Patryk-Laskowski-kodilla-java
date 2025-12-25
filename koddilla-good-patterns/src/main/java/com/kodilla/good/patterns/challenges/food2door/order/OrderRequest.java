@@ -1,4 +1,4 @@
-package com.kodilla.food2door.order;
+package com.kodilla.good.patterns.challenges.food2door.order;
 
 public class OrderRequest {
     private final String productName;
