@@ -1,6 +1,7 @@
 package com.kodilla.spring.kodillaspring;
 
 import com.kodilla.spring.shape.Circle;
+import com.kodilla.spring.shape.Square;
 import com.kodilla.spring.shape.Triangle;
 import com.kodilla.spring.shape.Shape;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ class KodillaSpringApplicationTests {
     void testCircleLoadedIntoContainer(){
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Shape shape = context.getBean(Circle.class);
+        Shape shape = (Shape)context.getBean("circle");
 
         String name = shape.getShapeName();
 
@@ -28,11 +29,34 @@ class KodillaSpringApplicationTests {
     void testTriangleLoadedIntoContainer(){
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Shape shape = context.getBean(Triangle.class);
+        Shape shape = (Shape)context.getBean("triangle");
 
         String name = shape.getShapeName();
 
         assertEquals("This is a triangle", name);
+    }
+
+    @Test
+    void testSquareLoadedIntoContainer(){
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Shape shape = (Shape)context.getBean("createSquare");
+
+        String name = shape.getShapeName();
+
+        assertEquals("This is a square", name);
+    }
+
+    @Test
+    void testShapeLoadedIntoContainer(){
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Shape shape = (Shape)context.getBean("chosenShape");
+
+        String name = shape.getShapeName();
+
+        System.out.println("Chosen shape says: " + name);
+
     }
 
     @Test
