@@ -65,3 +65,35 @@ VALUES (3, 'Repository layer completed', 'Created Spring Data repositories', 2);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
 VALUES (3, 'Basic CRUD operations', 'Implemented CRUD operations', 3);
+
+
+
+
+SELECT
+    i.ID,
+    i.SUMMARY,
+    i.DESCRIPTION,
+    il.NAME AS LIST_NAME
+FROM ISSUES i
+         INNER JOIN ISSUESLISTS il ON i.ISSUESLIST_ID = il.ID;
+
+SELECT
+    i.ID,
+    i.SUMMARY,
+    i.DESCRIPTION,
+    u.LASTNAME,
+    u.FIRSTNAME
+FROM ISSUES i
+         INNER JOIN USERS u ON i.USER_ID_ASSIGNEDTO = u.id;
+
+SELECT
+    u.FIRSTNAME,
+    u.LASTNAME,
+    COUNT(i.ID) AS liczba_zadan
+FROM USERS u
+         LEFT JOIN ISSUES i ON u.id = i.USER_ID_ASSIGNEDTO
+GROUP BY u.id, u.FIRSTNAME, u.LASTNAME
+HAVING COUNT(i.ID) > 0
+ORDER BY liczba_zadan DESC;
+
+
