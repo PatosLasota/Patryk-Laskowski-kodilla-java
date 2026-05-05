@@ -7,6 +7,14 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.retrieveByFirstThreeLetters",
+                query = "SELECT * FROM COMPANIES WHERE LEFT(company_name,3) = :PREFIX",
+                resultClass = Company.class
+        )
+})
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

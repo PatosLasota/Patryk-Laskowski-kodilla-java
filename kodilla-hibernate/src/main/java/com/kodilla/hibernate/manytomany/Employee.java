@@ -6,6 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQueries({
+    @NamedQuery(
+            name = "Employee.retrieveEmployeesByLastName",
+            query = "FROM Employee WHERE lastName = :LASTNAME"
+    )
+})
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -42,7 +49,7 @@ public class Employee {
     public String getLastName() {
         return lastName;
     }
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
             joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
